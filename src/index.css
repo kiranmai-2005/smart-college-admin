@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gen-AI Smart College Admin Assistant - Academic Design System
+   Colors: Deep navy, gold accents, clean whites
+   All colors MUST be HSL
+*/
+
+@layer base {
+  :root {
+    /* Core Academic Colors - Deep Navy & Gold */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary: Deep Navy Blue */
+    --primary: 222 47% 20%;
+    --primary-foreground: 45 100% 96%;
+
+    /* Secondary: Warm Gold */
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Muted: Soft Gray-Blue */
+    --muted: 210 25% 93%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent: Teal Academic */
+    --accent: 180 40% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 85%;
+    --input: 214 32% 91%;
+    --ring: 222 47% 20%;
+
+    --radius: 0.5rem;
+
+    /* Custom Academic Colors */
+    --navy: 222 47% 20%;
+    --navy-light: 222 35% 35%;
+    --gold: 45 93% 47%;
+    --gold-light: 45 93% 60%;
+    --gold-muted: 45 40% 85%;
+    --teal: 180 40% 45%;
+    --cream: 45 30% 96%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --info: 199 89% 48%;
+
+    /* Gradients */
+    --gradient-navy: linear-gradient(135deg, hsl(222 47% 20%) 0%, hsl(222 35% 35%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(45 93% 60%) 100%);
+    --gradient-header: linear-gradient(90deg, hsl(222 47% 20%) 0%, hsl(222 35% 30%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-card: 0 4px 20px -2px rgb(0 0 0 / 0.08);
+    --shadow-elegant: 0 10px 40px -10px hsl(222 47% 20% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 20%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 45 93% 47%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 35% 30%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 35% 25%;
+    --sidebar-ring: 45 93% 47%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 45 93% 55%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 222 35% 25%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 35% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 180 40% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 35% 20%;
+    --input: 222 35% 20%;
+    --ring: 45 93% 55%;
+
+    --navy: 222 47% 25%;
+    --navy-light: 222 35% 40%;
+    --gold: 45 93% 55%;
+    --gold-light: 45 93% 65%;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 45 93% 55%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 35% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 35% 15%;
+    --sidebar-ring: 45 93% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Academic Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Academic Card Styles */
+  .card-academic {
+    @apply bg-card rounded-lg border border-border shadow-[var(--shadow-card)] transition-all duration-200 hover:shadow-[var(--shadow-elegant)];
+  }
+
+  /* Document Preview Styles */
+  .document-preview {
+    @apply bg-white rounded-lg border-2 border-dashed border-border p-8 min-h-[400px];
+    background-image: 
+      linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Academic Badge */
+  .badge-academic {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[hsl(var(--gold-muted))] text-[hsl(var(--navy))];
+  }
+
+  /* Sidebar Active State */
+  .sidebar-item-active {
+    @apply bg-[hsl(var(--sidebar-accent))] text-[hsl(var(--sidebar-foreground))] border-l-2 border-[hsl(var(--gold))];
+  }
+
+  /* Formal Document Typography */
+  .formal-document {
+    @apply prose prose-slate max-w-none;
+  }
+
+  .formal-document h1 {
+    @apply text-center text-2xl font-bold uppercase tracking-wide border-b-2 border-[hsl(var(--navy))] pb-4 mb-6;
+  }
+
+  .formal-document .letterhead {
+    @apply text-center mb-8 pb-4 border-b border-[hsl(var(--border))];
+  }
+
+  /* Stats Card Animation */
+  .stat-card {
+    @apply transition-transform duration-200 hover:scale-[1.02];
+  }
+
+  /* Loading Shimmer */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--background)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Pulse animation for AI processing */
+  .ai-pulse {
+    animation: aiPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes aiPulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+
+@layer utilities {
+  /* Custom utility for academic headers */
+  .text-gradient-navy {
+    background: var(--gradient-navy);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-navy {
+    background: var(--gradient-navy);
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .bg-gradient-header {
+    background: var(--gradient-header);
+  }
+}
